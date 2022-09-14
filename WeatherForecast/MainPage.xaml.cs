@@ -10,11 +10,8 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
     }
-
-
 		//SemanticScreenReader.Announce(CounterBtn.Text);
 	
-
     void OnPickerSelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
