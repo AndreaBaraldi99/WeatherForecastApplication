@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherForecast.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+            <Picker x:Name="weatherModePicker" Title="Select mode" SelectedIndexChanged="OnPickerSelectedIndexChanged" Margin="10">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Latitude and Longitude</x:String>
+                        <x:String>Location</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Grid x:Name="latLonPanel" IsVisible="false" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Latitude" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" Margin="20"/>                
+                <Entry x:Name="latitudeEntry"
+                   Grid.Row="0" Grid.Column="1"
+                   Placeholder="Enter latitude"
+                   TextChanged="OnTextChanged"
+                   Completed="OnTextCompleted"
+                   WidthRequest="200"
+                   HeightRequest="20"
+                   HorizontalOptions="Start"
+                   Keyboard="Numeric"/>
+                <Label Text="Longitude" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" Margin="20"/>
+                <Entry x:Name="longitudeEntry"
+                    Grid.Row="1" Grid.Column="1"
+                    Placeholder="Enter latitude"
+                    TextChanged="OnTextChanged"
+                    Completed="OnTextCompleted"
+                    HeightRequest="20"
+                    WidthRequest="200"
+                    HorizontalOptions="Start"
+                    Keyboard="Numeric"/>
+            </Grid>
+            <StackLayout x:Name="locationPanel" IsVisible="false" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Location" HorizontalTextAlignment="End" Margin="20"/>
+                <Entry x:Name="locationEntry"
+                    Placeholder="Enter location"
+                    TextChanged="OnTextChanged"
+                    Completed="OnTextCompleted"
+                    WidthRequest="200"
+                    HeightRequest="20"
+                    HorizontalOptions="Start"
+                    Keyboard="Numeric"/>
+            </StackLayout>
+            <Button x:Name="searchButton"
+                Text="Search"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked"
+                BorderColor="Gray"
+                IsVisible="false"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
