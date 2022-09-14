@@ -38,7 +38,7 @@
                 <Label Text="Longitude" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" Margin="20"/>
                 <Entry x:Name="longitudeEntry"
                     Grid.Row="1" Grid.Column="1"
-                    Placeholder="Enter latitude"
+                    Placeholder="Enter longitude"
                     TextChanged="OnTextChanged"
                     Completed="OnTextCompleted"
                     HeightRequest="20"
@@ -46,9 +46,17 @@
                     HorizontalOptions="Start"
                     Keyboard="Numeric"/>
             </Grid>
-            <StackLayout x:Name="locationPanel" IsVisible="false" Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Location" HorizontalTextAlignment="End" Margin="20"/>
+            <Grid x:Name="locationPanel" IsVisible="false" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                 </Grid.ColumnDefinitions>
+                <Label Text="Location" HorizontalTextAlignment="End" Margin="20" Grid.Row="0" Grid.Column="0"/>
                 <Entry x:Name="locationEntry"
+                    Grid.Row="0" Grid.Column="1"
                     Placeholder="Enter location"
                     TextChanged="OnTextChanged"
                     Completed="OnTextCompleted"
@@ -56,14 +64,43 @@
                     HeightRequest="20"
                     HorizontalOptions="Start"
                     Keyboard="Numeric"/>
-            </StackLayout>
+            </Grid>
             <Button x:Name="searchButton"
                 Text="Search"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Clicked="OnButtonClicked"
                 BorderColor="Gray"
-                IsVisible="false"/>
+                IsVisible="false"
+                IsEnabled="False"
+                Pressed="OnSearchButtonPressed"
+                WidthRequest="200"
+                TextColor="Black"
+                FontSize="16"
+             >
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="PressedButtonAnimation">
+                        <VisualState x:Name="NotPressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                    Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                    Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+            <CollectionView ItemsSource="{Binding time}">
+                
+            </CollectionView>
+            
+            
+
         </VerticalStackLayout>
     </ScrollView>
 

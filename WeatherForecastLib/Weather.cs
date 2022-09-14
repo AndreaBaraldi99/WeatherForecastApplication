@@ -22,7 +22,7 @@ namespace WeatherForecastLib
 
         }
 
-        public WeatherForecastResult GetForecast(float latitude, float longitude)
+        public WeatherForecastResult GetForecast(double latitude, double longitude)
         {
             string url = _apiRootWeather + _forecastParams + "&latitude=" + latitude.ToString("0.0", CultureInfo.InvariantCulture) + "&longitude=" + longitude.ToString("0.0", CultureInfo.InvariantCulture);
             var response = _api.CallAPI(url);
@@ -62,7 +62,7 @@ namespace WeatherForecastLib
             Data location = new Data();
             location = response.Content.ReadFromJsonAsync<Data>().Result;
 		
-		    return GetForecast((float)location.Results.First<Result>().Latitude, (float)location.Results.First<Result>().Longitude);
+		    return GetForecast(location.Results.First<Result>().Latitude, location.Results.First<Result>().Longitude);
 	    	
 	    
 	}

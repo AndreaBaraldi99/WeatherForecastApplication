@@ -5,12 +5,20 @@ namespace WeatherForecast;
 public partial class MainPage : ContentPage
 {
 	int count = 0;
+	string latitude = "";
+	string longitude = "";
+	string location = "";
+	Weather weather;
+	WeatherForecastResult forecastResult;
 
 	public MainPage()
 	{
 		InitializeComponent();
+		weather = new Weather();
+		forecastResult = new WeatherForecastResult();
+
     }
-		//SemanticScreenReader.Announce(CounterBtn.Text);
+	//SemanticScreenReader.Announce(CounterBtn.Text);
 	
     void OnPickerSelectedIndexChanged(object sender, EventArgs e)
     {
@@ -22,6 +30,7 @@ public partial class MainPage : ContentPage
 			latLonPanel.IsVisible = true;
 			locationPanel.IsVisible = false;
 			searchButton.IsVisible = true;
+			searchButton.IsEnabled = true;
             //SemanticScreenReader.Announce(latLonPanel.IsVisible);
         }
 		else if(selectedIndex == 1)
@@ -29,6 +38,7 @@ public partial class MainPage : ContentPage
 			latLonPanel.IsVisible = false;
 			locationPanel.IsVisible = true;
             searchButton.IsVisible = true;
+			searchButton.IsEnabled = true;
         }
     }
 
@@ -46,5 +56,25 @@ public partial class MainPage : ContentPage
 	{
 
 	}
+
+	private void OnSearchButtonPressed(object sender, EventArgs e)
+	{
+        Button b = (Button)sender;
+        Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(100), () =>
+        {
+            VisualStateManager.GoToState(b, "NotPressed");
+        });
+
+		searchButton.IsEnabled = false;
+		if(weatherModePicker.SelectedIndex == 0)
+		{
+			forecastResult = weather.GetForecast(Convert.ToDouble(latitudeEntry.Text), Convert.ToDouble(longitudeEntry.Text));
+		}
+		else if(weatherModePicker.SelectedIndex == 1)
+		{
+			forecastResult = weather.GetForecast(locationEntry.Text);
+		}
+
+    }
 }
 
