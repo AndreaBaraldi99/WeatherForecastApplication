@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Markup;
 using System.Diagnostics;
+using WeatherForecast.ViewModels;
 using WeatherForecastLib;
 namespace WeatherForecast;
 
@@ -53,18 +54,16 @@ public partial class MainPage : ContentPage
 
 	private void OnButtonClicked(object sender, EventArgs e)
 	{
-
-	}
-
-	private void OnSearchButtonPressed(object sender, EventArgs e)
-	{
         Button b = (Button)sender;
         Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(100), () =>
         {
             VisualStateManager.GoToState(b, "NotPressed");
         });
+    }
 
-		//searchButton.IsEnabled = false;
+	private void OnSearchButtonPressed(object sender, EventArgs e)
+	{
+       	searchButton.IsEnabled = false;
 		if(weatherModePicker.SelectedIndex == 0)
 		{
 			_viewModel.getForecastResult(Convert.ToDouble(latitudeEntry.Text), Convert.ToDouble(longitudeEntry.Text));
@@ -73,6 +72,7 @@ public partial class MainPage : ContentPage
 		{
 			_viewModel.getForecastResult(locationEntry.Text);
 		}
+		TimeList.ItemsSource = _viewModel.result.Daily.Time;
 
     }
 }

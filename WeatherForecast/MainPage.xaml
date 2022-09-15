@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="WeatherForecast.MainPage">
+             xmlns:models="clr-namespace:WeatherForecast.ViewModels"
+             x:Class="WeatherForecast.MainPage"
+             x:DataType="models:WeatherViewModel">
 
     <ScrollView>
         <VerticalStackLayout
@@ -120,10 +122,16 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <Label Text="{Binding Latitude}"></Label>
-            <CollectionView ItemsSource="{Binding }">
-                
-            </CollectionView>
+            <ListView x:Name="TimeList" ItemsSource="{Binding result.Daily.Time}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}">
+                            
+                        </Label>
+                        
+                    </DataTemplate>                                        
+                </ListView.ItemTemplate>
+            </ListView>
             
             
 

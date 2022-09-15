@@ -1,8 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
+
 
 namespace WeatherForecastLib
 {
-    public class WeatherForecastResult
+    public class WeatherForecastResult : INotifyPropertyChanged
     {
         [JsonPropertyName("latitude")]
         public float Latitude { get; set; }
@@ -30,6 +32,7 @@ namespace WeatherForecastLib
 
         [JsonPropertyName("daily")]
         public Daily Daily { get; set; }
-        
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

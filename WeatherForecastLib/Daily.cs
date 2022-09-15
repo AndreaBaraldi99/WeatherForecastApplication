@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace WeatherForecastLib
 {
-    public class Daily
+    public class Daily : INotifyPropertyChanged
     {
         [JsonPropertyName("time")]
         public List<string> Time { get; set; }
@@ -27,6 +28,7 @@ namespace WeatherForecastLib
 
         [JsonPropertyName("weathercode")]
         public List<float> Weathercode { get; set; }
-        
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
