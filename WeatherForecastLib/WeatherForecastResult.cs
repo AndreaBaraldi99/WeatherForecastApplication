@@ -1,11 +1,13 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 
 namespace WeatherForecastLib
 {
-    public class WeatherForecastResult : INotifyPropertyChanged
+    public class WeatherForecastResult : ObservableObject
     {
+
         [JsonPropertyName("latitude")]
         public float Latitude { get; set; }
 
@@ -27,12 +29,13 @@ namespace WeatherForecastLib
         [JsonPropertyName("elevation")]
         public float Elevation { get; set; }
 
+    
         [JsonPropertyName("daily_units")]
         public DailyUnits DailyUnits { get; set; }
 
         [JsonPropertyName("daily")]
         public Daily Daily { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        
     }
 }

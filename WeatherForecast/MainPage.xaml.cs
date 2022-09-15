@@ -72,7 +72,9 @@ public partial class MainPage : ContentPage
 		{
 			_viewModel.getForecastResult(locationEntry.Text);
 		}
-		TimeList.ItemsSource = _viewModel.result.Daily.Time;
+
+		TimeList.ItemsSource = _viewModel.resultList;
+
 
     }
 }

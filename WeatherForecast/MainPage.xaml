@@ -122,20 +122,16 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <ListView x:Name="TimeList" ItemsSource="{Binding result.Daily.Time}">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="TimeList" IsVisible="true" SelectionMode="None" IsGrouped="True" ItemsLayout="HorizontalGrid">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding .}">
-                            
+                        <Label Text="{Binding .}">                            
                         </Label>
-                        
-                    </DataTemplate>                                        
-                </ListView.ItemTemplate>
-            </ListView>
-            
-            
-
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
+        
     </ScrollView>
 
 </ContentPage>
