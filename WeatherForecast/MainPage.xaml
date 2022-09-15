@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="WeatherForecast.MainPage">
 
     <ScrollView>
@@ -25,7 +26,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Text="Latitude" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" Margin="20"/>                
+                <Label Text="Latitude" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" Margin="20"/>
                 <Entry x:Name="latitudeEntry"
                    Grid.Row="0" Grid.Column="1"
                    Placeholder="Enter latitude"
@@ -33,8 +34,16 @@
                    Completed="OnTextCompleted"
                    WidthRequest="200"
                    HeightRequest="20"
-                   HorizontalOptions="Start"
-                   Keyboard="Numeric"/>
+                   HorizontalOptions="Start">
+                    <Entry.Behaviors>
+                        <toolkit:NumericValidationBehavior 
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            ValidStyle="{StaticResource ValidEntryStyle}"
+                            Flags="ValidateOnValueChanged"
+                            MinimumValue="-90"
+                            MaximumValue="90"/>
+                        </Entry.Behaviors>
+                </Entry>
                 <Label Text="Longitude" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" Margin="20"/>
                 <Entry x:Name="longitudeEntry"
                     Grid.Row="1" Grid.Column="1"
@@ -43,8 +52,16 @@
                     Completed="OnTextCompleted"
                     HeightRequest="20"
                     WidthRequest="200"
-                    HorizontalOptions="Start"
-                    Keyboard="Numeric"/>
+                    HorizontalOptions="Start">
+                    <Entry.Behaviors>
+                        <toolkit:NumericValidationBehavior 
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            ValidStyle="{StaticResource ValidEntryStyle}"
+                            Flags="ValidateOnValueChanged"
+                            MinimumValue="-180"
+                            MaximumValue="180"/>
+                    </Entry.Behaviors>
+                </Entry>
             </Grid>
             <Grid x:Name="locationPanel" IsVisible="false" Margin="10">
                 <Grid.RowDefinitions>
@@ -62,8 +79,16 @@
                     Completed="OnTextCompleted"
                     WidthRequest="200"
                     HeightRequest="20"
-                    HorizontalOptions="Start"
-                    Keyboard="Numeric"/>
+                    HorizontalOptions="Start">
+                    <Entry.Behaviors>
+                        <toolkit:CharactersValidationBehavior 
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            ValidStyle="{StaticResource ValidEntryStyle}"
+                            Flags="ValidateOnValueChanged"
+                            CharacterType="LatinLetter"
+                            MinimumLength="1" />
+                    </Entry.Behaviors>
+                </Entry>
             </Grid>
             <Button x:Name="searchButton"
                 Text="Search"
@@ -95,7 +120,8 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <CollectionView ItemsSource="{Binding time}">
+            <Label Text="{Binding Latitude}"></Label>
+            <CollectionView ItemsSource="{Binding }">
                 
             </CollectionView>
             

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using CommunityToolkit.Maui.Behaviors;
+using CommunityToolkit.Maui.Markup;
+using System.Diagnostics;
 using WeatherForecastLib;
 namespace WeatherForecast;
 
@@ -8,18 +10,15 @@ public partial class MainPage : ContentPage
 	string latitude = "";
 	string longitude = "";
 	string location = "";
-	Weather weather;
-	WeatherForecastResult forecastResult;
+	WeatherViewModel _viewModel;
 
 	public MainPage()
 	{
 		InitializeComponent();
-		weather = new Weather();
-		forecastResult = new WeatherForecastResult();
-
+		BindingContext = _viewModel = new WeatherViewModel();
     }
 	//SemanticScreenReader.Announce(CounterBtn.Text);
-	
+
     void OnPickerSelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
@@ -65,14 +64,14 @@ public partial class MainPage : ContentPage
             VisualStateManager.GoToState(b, "NotPressed");
         });
 
-		searchButton.IsEnabled = false;
+		//searchButton.IsEnabled = false;
 		if(weatherModePicker.SelectedIndex == 0)
 		{
-			forecastResult = weather.GetForecast(Convert.ToDouble(latitudeEntry.Text), Convert.ToDouble(longitudeEntry.Text));
+			_viewModel.getForecastResult(Convert.ToDouble(latitudeEntry.Text), Convert.ToDouble(longitudeEntry.Text));
 		}
 		else if(weatherModePicker.SelectedIndex == 1)
 		{
-			forecastResult = weather.GetForecast(locationEntry.Text);
+			_viewModel.getForecastResult(locationEntry.Text);
 		}
 
     }

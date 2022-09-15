@@ -49,6 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Core" Version="1.2.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Markup" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\WeatherForecastLib\WeatherForecastLib.csproj" />
 	</ItemGroup>
 
