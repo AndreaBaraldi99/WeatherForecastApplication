@@ -122,7 +122,7 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <CollectionView x:Name="TimeList" IsVisible="true" SelectionMode="None" IsGrouped="True" ItemsLayout="HorizontalGrid">
+            <CollectionView x:Name="TimeList" IsVisible="true" SelectionMode="None" IsGrouped="True" ItemsLayout="VerticalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Label Text="{Binding .}">                            
@@ -130,8 +130,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
-        
+        </VerticalStackLayout>        
     </ScrollView>
-
 </ContentPage>
