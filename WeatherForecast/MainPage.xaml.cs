@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Markup;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using WeatherForecast.ViewModels;
 using WeatherForecastLib;
@@ -73,7 +74,11 @@ public partial class MainPage : ContentPage
 			_viewModel.getForecastResult(locationEntry.Text);
 		}
 
-		TimeList.ItemsSource = _viewModel.resultList;
+		TimeList.IsEnabled = true;
+		TimeList.IsVisible = true;
+		searchButton.IsEnabled = true;
+		
+		
 
 
     }

@@ -28,7 +28,6 @@ namespace WeatherForecastLib
 
         [JsonPropertyName("elevation")]
         public float Elevation { get; set; }
-
     
         [JsonPropertyName("daily_units")]
         public DailyUnits DailyUnits { get; set; }
