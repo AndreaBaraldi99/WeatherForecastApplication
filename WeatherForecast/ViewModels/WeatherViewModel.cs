@@ -16,7 +16,9 @@ namespace WeatherForecast.ViewModels
         private Weather Weather;
 
         [ObservableProperty]
-        //public ObservableCollection<string> observableTime;
+        public string titleNames;
+
+        [ObservableProperty]
         public ObservableCollection<object> resultList;
 
         public WeatherForecastResult result { get; set; }
@@ -26,32 +28,30 @@ namespace WeatherForecast.ViewModels
             result = new WeatherForecastResult();
             Weather = new Weather();
             resultList = new ObservableCollection<object>();
-            //observableTime = new ObservableCollection<string>();
+            titleNames = string.Empty;
+           
         }
         public void getForecastResult(double latitude, double longitude)
         {
             result = Weather.GetForecast(latitude, longitude);
-            populateList();
-            //observableTime = result.Daily.Time.ToObservableCollection<string>();
+            populateList();         
         }
 
         public void getForecastResult(string location)
         {
             result = Weather.GetForecast(location);
             populateList();
-            //observableTime = result.Daily.Time.ToObservableCollection<string>();
         }
 
         private void populateList()
         {
-            resultList.Add(result.Daily.Time);
-            resultList.Add(result.Daily.Temperature2mMax);
-            resultList.Add(result.Daily.Temperature2mMin);
-            resultList.Add(result.Daily.Sunrise);
-            resultList.Add(result.Daily.Sunset);
-            resultList.Add(result.Daily.PrecipitationSum);
-            resultList.Add(result.Daily.Windspeed10mMax);
-            resultList.Add(result.Daily.Weathercode);
+            
+            foreach(var item in result.Daily.GetType().GetProperties())
+            {
+                resultList.Add(item.GetValue(result.Daily, null));
+                titleNames+=item.Name+" ";
+            }
+           
         }
     }
 }

@@ -11,10 +11,10 @@ namespace WeatherForecastLib
         public List<string> Time { get; set; }
 
         [JsonPropertyName("temperature_2m_max")]
-        public List<float> Temperature2mMax { get; set; }
+        public List<float> MaxTemperature { get; set; }
 
         [JsonPropertyName("temperature_2m_min")]
-        public List<float> Temperature2mMin { get; set; }
+        public List<float> MinTemperature { get; set; }
 
         [JsonPropertyName("sunrise")]
         public List<string> Sunrise { get; set; }
@@ -26,7 +26,7 @@ namespace WeatherForecastLib
         public List<float> PrecipitationSum { get; set; }
 
         [JsonPropertyName("windspeed_10m_max")]
-        public List<float> Windspeed10mMax { get; set; }
+        public List<float> MaxWindspeed { get; set; }
 
         [JsonPropertyName("weathercode")]
         public List<float> Weathercode { get; set; }

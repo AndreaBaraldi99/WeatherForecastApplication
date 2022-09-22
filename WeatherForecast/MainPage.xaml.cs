@@ -63,19 +63,21 @@ public partial class MainPage : ContentPage
 
 	private void OnSearchButtonPressed(object sender, EventArgs e)
 	{
-       	searchButton.IsEnabled = false;
-		if(weatherModePicker.SelectedIndex == 0)
+		searchButton.IsEnabled = false;
+		if (weatherModePicker.SelectedIndex == 0)
 		{
 			_viewModel.getForecastResult(Convert.ToDouble(latitudeEntry.Text), Convert.ToDouble(longitudeEntry.Text));
 		}
-		else if(weatherModePicker.SelectedIndex == 1)
+		else if (weatherModePicker.SelectedIndex == 1)
 		{
 			_viewModel.getForecastResult(locationEntry.Text);
 		}
 
-		TimeList.ItemsSource = _viewModel.resultList;
+		ResultList.ItemsSource = _viewModel.resultList;
+		ResultList.Header = _viewModel.titleNames;
+		ResultList.IsEnabled = true;
+		ResultList.IsVisible = true;
+	}
 
-
-    }
 }
 

@@ -122,10 +122,13 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <CollectionView x:Name="TimeList" IsVisible="true" SelectionMode="None" IsGrouped="True" ItemsLayout="VerticalList">
+            <CollectionView x:Name="ResultList" IsVisible="false" IsEnabled="False" SelectionMode="None" IsGrouped="True" Header="{Binding TitleNames}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding .}">                            
+                        <Label Text="{Binding .}">
                         </Label>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
