@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Maui.Graphics;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing;
 using System.Text.Json.Serialization;
+using Color = Microsoft.Maui.Graphics.Color;
 
 namespace WeatherForecastLib
 {
@@ -30,7 +33,29 @@ namespace WeatherForecastLib
 
         [JsonPropertyName("weathercode")]
         public List<float> Weathercode { get; set; }
+        public List<Hourly> Hourlies { get; set; }
 
-       
+        public void SetupSunsetSunrise()
+        {
+            for(int i = 0; i < Sunrise.Count; i++)
+            {
+                Sunrise[i] = Sunrise[i].Substring(Sunrise[i].IndexOf("T")+1);
+                Sunset[i] = Sunset[i].Substring(Sunset[i].IndexOf("T")+1);
+            }
+        }
+
+        public void SetupHourly()
+        {
+            Hourlies = new List<Hourly>();
+            for(int i = 0; i < Time.Count; i++)
+            {
+                Hourlies.Add(new Hourly(Time[i], MaxTemperature[i], MinTemperature[i], Sunrise[i], Sunset[i], PrecipitationSum[i], MaxWindspeed[i], Weathercode[i]));
+            }            
+        }
+
+        public void SetupColor()
+        {
+            Hourlies.OrderByDescending(e => e.Temperature2mMax).First().MaxTemp = Colors.Red;
+        }
     }
 }
