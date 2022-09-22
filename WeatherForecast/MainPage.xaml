@@ -13,7 +13,7 @@
             Spacing="10"
             Padding="30,0"
             VerticalOptions="Start">
-            <Border Stroke="#757575" StrokeThickness="4" Background="#a7a29a" StrokeShape="RoundRectangle 30,30,30,30"
+            <Border Stroke="#757575" StrokeThickness="4" Background="#a7a29a" StrokeShape="RoundRectangle 5,5,5,5"
                     WidthRequest="130" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,20,0,0">                
                 <Label Text="Select mode" WidthRequest="81" HorizontalOptions="Fill"  
                         TextColor="Black" VerticalOptions="Center"/>
@@ -81,8 +81,10 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Text="Location" HorizontalTextAlignment="End" Margin="20" Grid.Row="0" Grid.Column="0"
-                       TextColor="Black"/>
+                <Border Stroke="#757575" StrokeThickness="2" Background="#a7a29a" StrokeShape="RoundRectangle 5,5,5,5"
+                    Grid.Row="0" Grid.Column="0" WidthRequest="200" HorizontalOptions="End" Margin="0,0,10,0">
+                    <Label Text="Location" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                </Border>
                 <Entry x:Name="locationEntry"
                     Grid.Row="0" Grid.Column="1"
                     Placeholder="Enter location"

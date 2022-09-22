@@ -65,7 +65,6 @@ namespace WeatherForecast.ViewModels
             result.Daily.SetupHourly();
             result.Daily.SetupColor();
             resultList = result.Daily.Hourlies;
-            //resultList.OrderByDescending(e=>e.Temperature2mMax).FirstOrDefault().MaxTemp = System.Drawing.Color.Magenta ;
         }
     }
 }

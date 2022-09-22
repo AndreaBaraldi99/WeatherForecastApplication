@@ -77,7 +77,7 @@ public partial class MainPage : ContentPage
 		TimeList.IsEnabled = true;
 		TimeList.IsVisible = true;
 		searchButton.IsEnabled = true;
-		
+	}
 		
 
 
