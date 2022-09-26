@@ -63,7 +63,7 @@ namespace WeatherForecast.ViewModels
         {
             result.Daily.SetupSunsetSunrise();
             result.Daily.SetupHourly();
-            result.Daily.SetupColor();
+            result.Daily.SetupWeatherIcon();
             resultList = result.Daily.Hourlies;
         }
     }

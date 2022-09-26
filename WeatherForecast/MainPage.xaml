@@ -13,13 +13,13 @@
             Spacing="10"
             Padding="30,0"
             VerticalOptions="Start">
-            <Border Stroke="#757575" StrokeThickness="4" Background="#a7a29a" StrokeShape="RoundRectangle 5,5,5,5"
+            <Border Stroke="#757575" StrokeThickness="2" Background="white" StrokeShape="RoundRectangle 5,5,5,5"
                     WidthRequest="130" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,20,0,0">                
                 <Label Text="Select mode" WidthRequest="81" HorizontalOptions="Fill"  
                         TextColor="Black" VerticalOptions="Center"/>
             </Border>
             <Picker x:Name="weatherModePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged"  
-                    BackgroundColor="Grey" Margin="10,0,0,0">
+                    BackgroundColor="#1a548f" Margin="1,0,0,0">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Latitude and Longitude</x:String>
@@ -81,29 +81,31 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Border Stroke="#757575" StrokeThickness="2" Background="#a7a29a" StrokeShape="RoundRectangle 5,5,5,5"
+                <Border Stroke="#757575" StrokeThickness="2" Background="White" StrokeShape="RoundRectangle 5,5,5,5"
                     Grid.Row="0" Grid.Column="0" WidthRequest="200" HorizontalOptions="End" Margin="0,0,10,0">
                     <Label Text="Location" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                 </Border>
-                <Entry x:Name="locationEntry"
-                    Grid.Row="0" Grid.Column="1"
+                <Border Stroke="#757575" StrokeThickness="2" Background="White" StrokeShape="RoundRectangle 5,5,5,5"
+                    Grid.Row="0" Grid.Column="1" WidthRequest="200" HorizontalOptions="Start" Margin="0,0,10,0">
+                    <Entry x:Name="locationEntry"
                     Placeholder="Enter location"
-                    PlaceholderColor="Black"
+                    PlaceholderColor="WhiteSmoke"
                     TextChanged="OnTextChanged"
                     Completed="OnTextCompleted"
                     WidthRequest="200"
                     HeightRequest="20"
                     HorizontalOptions="Start"
-                    BackgroundColor="Grey">
-                    <Entry.Behaviors>
-                        <toolkit:CharactersValidationBehavior 
+                    BackgroundColor="White">
+                        <Entry.Behaviors>
+                            <toolkit:CharactersValidationBehavior 
                             InvalidStyle="{StaticResource InvalidEntryStyle}"
                             ValidStyle="{StaticResource ValidEntryStyle}"
                             Flags="ValidateOnValueChanged"
                             CharacterType="LatinLetter"
                             MinimumLength="1" />
-                    </Entry.Behaviors>
-                </Entry>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Border>
             </Grid>
             <Button x:Name="searchButton"
                 Text="Search"
@@ -135,18 +137,20 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <CollectionView x:Name="TimeList" IsEnabled="False" IsVisible="false" SelectionMode="None" HorizontalOptions="Center" 
-                            ItemsSource="{Binding resultList}" >
+            <Border x:Name="ResultBorder" Background="#1f5ea5" StrokeShape="RoundRectangle 5,5,5,5" Padding="10" Stroke="#1a548f" 
+                    StrokeThickness="10" HorizontalOptions="Center" IsVisible="false" WidthRequest="1400">
+                <CollectionView x:Name="TimeList" IsEnabled="False" IsVisible="false" SelectionMode="None" HorizontalOptions="Center" 
+                            ItemsSource="{Binding resultList}">
                 <CollectionView.Header>
-                    <HorizontalStackLayout Spacing="80" >
-                        <Label Text="Time" WidthRequest="100"/>
-                        <Label Text="Max temperature 🔺" WidthRequest="100"/>
-                        <Label Text="Min temperature 🔽" WidthRequest="100"/>
+                    <HorizontalStackLayout Spacing="80" Margin="0,0,0,20">
+                        <Label Text="Date" WidthRequest="100"/>
+                        <Label Text="Max temperature °C🔺" WidthRequest="100"/>
+                        <Label Text="Min temperature °C 🔽" WidthRequest="100"/>
                         <Label Text="Sunrise 🌅" WidthRequest="100"/>
                         <Label Text="Sunset 🌇" WidthRequest="100"/>
-                        <Label Text="Precipitation sum 🌧️" WidthRequest="100"/>
-                        <Label Text="Max windspeed 🍃" WidthRequest="100"/>
-                        <Label Text="Weathercode" WidthRequest="100"/>
+                        <Label Text="Precipitation sum (mm)🌧️" WidthRequest="100"/>
+                        <Label Text="Max windspeed (km/h)🍃" WidthRequest="100"/>
+                        <Label Text="Average weather" WidthRequest="100"/>
                     </HorizontalStackLayout>
                 </CollectionView.Header>
                 <CollectionView.ItemsLayout>
@@ -154,19 +158,20 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout x:Name="ResultLayout" Orientation="Horizontal" x:DataType="libs:Hourly" Spacing="80">
-                            <Label x:Name="TimeLabel" Text="{Binding Time}" HorizontalOptions="Start" WidthRequest="100" />
-                            <Label x:Name="MaxTempLabel" Text="{Binding Temperature2mMax}" TextColor="{Binding MaxTemp}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="MinTempLabel" Text="{Binding Temperature2mMin}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="SunriseLabel" Text="{Binding Sunrise}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="SunsetLabel" Text="{Binding Sunset}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="PrecipitationLabel" Text="{Binding PrecipitationSum}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="WindspeedLabel" Text="{Binding Windspeed10mMax}" HorizontalOptions="Start" WidthRequest="100"/>
-                            <Label x:Name="WeathercodeLabel" Text="{Binding Weathercode}" HorizontalOptions="Start" WidthRequest="100"/>
+                        <StackLayout x:Name="ResultLayout" Orientation="Horizontal" x:DataType="libs:Hourly" Spacing="80" Margin="0,0,0,15">
+                                <Label x:Name="TimeLabel" Text="{Binding Time}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                                <Label x:Name="MaxTempLabel" Text="{Binding Temperature2mMax}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                                <Label x:Name="MinTempLabel" Text="{Binding Temperature2mMin}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                                <Label x:Name="SunriseLabel" Text="{Binding Sunrise}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                                <Label x:Name="SunsetLabel" Text="{Binding Sunset}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                                <Label x:Name="PrecipitationLabel" Text="{Binding PrecipitationSum}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                            <Label x:Name="WindspeedLabel" Text="{Binding Windspeed10mMax}" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100"/>
+                            <Label x:Name="WeathercodeLabel" Text="{Binding WeatherIcon}" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="100" FontSize="30"/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+                </CollectionView>
+            </Border>
         </VerticalStackLayout>        
     </ScrollView>        
 </ContentPage>

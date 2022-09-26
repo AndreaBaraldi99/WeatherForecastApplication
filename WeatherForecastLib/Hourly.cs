@@ -20,7 +20,7 @@ namespace WeatherForecastLib
         public float PrecipitationSum { get; set; }        
         public float Windspeed10mMax { get; set; }
         public float Weathercode { get; set; }
-        public Color MaxTemp { get; set; }
+        public string WeatherIcon { get; set; }
 
         public Hourly(string time, float temperature2mMax, float temperature2mMin, string sunrise, string sunset, float precipitationSum, float windspeed10mMax, float weathercode)
         {

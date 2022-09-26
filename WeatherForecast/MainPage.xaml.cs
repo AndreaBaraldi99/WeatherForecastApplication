@@ -8,10 +8,6 @@ namespace WeatherForecast;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-	string latitude = "";
-	string longitude = "";
-	string location = "";
 	WeatherViewModel _viewModel;
 
 	public MainPage()
@@ -77,6 +73,7 @@ public partial class MainPage : ContentPage
 		TimeList.IsEnabled = true;
 		TimeList.IsVisible = true;
 		searchButton.IsEnabled = true;
+		ResultBorder.IsVisible = true;
 	}
 		
 
