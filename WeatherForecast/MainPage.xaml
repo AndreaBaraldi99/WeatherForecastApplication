@@ -6,7 +6,8 @@
              xmlns:libs="clr-namespace:WeatherForecastLib;assembly=WeatherForecastLib"
              x:Class="WeatherForecast.MainPage"
              x:DataType="models:WeatherViewModel"
-             BackgroundImageSource="lowpoly_blue_sky.png">
+             BackgroundImageSource="lowpoly_blue_sky.png"
+             xmlns:resources="clr-namespace:WeatherForecast.Resources">
     
     <ScrollView>
         <VerticalStackLayout
@@ -15,17 +16,11 @@
             VerticalOptions="Start">
             <Border Stroke="#757575" StrokeThickness="2" Background="white" StrokeShape="RoundRectangle 5,5,5,5"
                     WidthRequest="130" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,20,0,0">                
-                <Label Text="Select mode" WidthRequest="81" HorizontalOptions="Fill"  
+                <Label Text="{x:Static resources:AppResources.SelectMode}" WidthRequest="81" HorizontalOptions="Fill"  
                         TextColor="Black" VerticalOptions="Center"/>
             </Border>
             <Picker x:Name="weatherModePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged"  
-                    BackgroundColor="#1a548f" Margin="1,0,0,0">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Latitude and Longitude</x:String>
-                        <x:String>Location</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
+                    BackgroundColor="#1a548f" Margin="1,0,0,0" ItemsSource="{Binding pickerSelection}">
             </Picker>
             <Grid x:Name="latLonPanel" IsVisible="false" Margin="10">
                 <Grid.RowDefinitions>
@@ -36,10 +31,10 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Text="Latitude" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" Margin="20"/>
+                <Label Text="{x:Static resources:AppResources.Latitude}" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" Margin="20"/>
                 <Entry x:Name="latitudeEntry"
                    Grid.Row="0" Grid.Column="1"
-                   Placeholder="Enter latitude"
+                   Placeholder="{x:Static resources:AppResources.LatitudeEntry}"
                    TextChanged="OnTextChanged"
                    Completed="OnTextCompleted"
                    WidthRequest="200"
@@ -54,10 +49,10 @@
                             MaximumValue="90"/>
                         </Entry.Behaviors>
                 </Entry>
-                <Label Text="Longitude" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" Margin="20"/>
+                <Label Text="{x:Static resources:AppResources.Longitude}" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" Margin="20"/>
                 <Entry x:Name="longitudeEntry"
                     Grid.Row="1" Grid.Column="1"
-                    Placeholder="Enter longitude"
+                    Placeholder="{x:Static resources:AppResources.LongitudeEntry}"
                     TextChanged="OnTextChanged"
                     Completed="OnTextCompleted"
                     HeightRequest="20"
@@ -83,12 +78,12 @@
                 </Grid.ColumnDefinitions>
                 <Border Stroke="#757575" StrokeThickness="2" Background="White" StrokeShape="RoundRectangle 5,5,5,5"
                     Grid.Row="0" Grid.Column="0" WidthRequest="200" HorizontalOptions="End" Margin="0,0,10,0">
-                    <Label Text="Location" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                    <Label Text="{x:Static resources:AppResources.Location}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                 </Border>
                 <Border Stroke="#757575" StrokeThickness="2" Background="White" StrokeShape="RoundRectangle 5,5,5,5"
                     Grid.Row="0" Grid.Column="1" WidthRequest="200" HorizontalOptions="Start" Margin="0,0,10,0">
                     <Entry x:Name="locationEntry"
-                    Placeholder="Enter location"
+                    Placeholder="{x:Static resources:AppResources.LocationEntry}"
                     PlaceholderColor="WhiteSmoke"
                     TextChanged="OnTextChanged"
                     Completed="OnTextCompleted"
@@ -108,7 +103,7 @@
                 </Border>
             </Grid>
             <Button x:Name="searchButton"
-                Text="Search"
+                Text="{x:Static resources:AppResources.Search}"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Clicked="OnButtonClicked"
@@ -143,14 +138,14 @@
                             ItemsSource="{Binding resultList}">
                 <CollectionView.Header>
                     <HorizontalStackLayout Spacing="80" Margin="0,0,0,20">
-                        <Label Text="Date" WidthRequest="100"/>
-                        <Label Text="Max temperature °C🔺" WidthRequest="100"/>
-                        <Label Text="Min temperature °C 🔽" WidthRequest="100"/>
-                        <Label Text="Sunrise 🌅" WidthRequest="100"/>
-                        <Label Text="Sunset 🌇" WidthRequest="100"/>
-                        <Label Text="Precipitation sum (mm)🌧️" WidthRequest="100"/>
-                        <Label Text="Max windspeed (km/h)🍃" WidthRequest="100"/>
-                        <Label Text="Average weather" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.Date}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.MaxTemperature}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.MinTemperature}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.Sunrise}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.Sunset}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.PrecipitationSum}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.MaxWindspeed}" WidthRequest="100"/>
+                        <Label Text="{x:Static resources:AppResources.AverageWeather}" WidthRequest="100"/>
                     </HorizontalStackLayout>
                 </CollectionView.Header>
                 <CollectionView.ItemsLayout>
