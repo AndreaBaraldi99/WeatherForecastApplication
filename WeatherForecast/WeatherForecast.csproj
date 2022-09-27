@@ -60,4 +60,8 @@
 	  <ProjectReference Include="..\WeatherForecastLib\WeatherForecastLib.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Database\" />
+	</ItemGroup>
+
 </Project>
