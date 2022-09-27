@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Microsoft.Maui.Graphics;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Text.Json.Serialization;
-using Color = Microsoft.Maui.Graphics.Color;
 
 namespace WeatherForecastLib
 {
