@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast", "WeatherF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecastLib", "WeatherForecastLib\WeatherForecastLib.csproj", "{F8A30D58-61EA-4017-BEA5-B83F61D1511B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Repository", "WeatherForecast.Repository\WeatherForecast.Repository.csproj", "{C3CD003A-85BD-403D-835F-495E2CA3041D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.Repository", "WeatherForecast.Repository\WeatherForecast.Repository.csproj", "{C3CD003A-85BD-403D-835F-495E2CA3041D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecastRepositoryInterfaces", "WeatherForecastRepositoryInterfaces\WeatherForecastRepositoryInterfaces.csproj", "{5CF69BAF-566C-4C54-8B5F-38659F1397B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.RepositoryInterfaces", "WeatherForecastRepositoryInterfaces\WeatherForecast.RepositoryInterfaces.csproj", "{5CF69BAF-566C-4C54-8B5F-38659F1397B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.DTO", "WeatherForecast.DTO\WeatherForecast.DTO.csproj", "{39E5A786-1371-4788-B8F1-603ECCAA4E70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.DTO", "WeatherForecast.DTO\WeatherForecast.DTO.csproj", "{39E5A786-1371-4788-B8F1-603ECCAA4E70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Core", "WeatherForecast.Core\WeatherForecast.Core.csproj", "{B6D9FF49-B610-47FC-8C5F-0571390436B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{39E5A786-1371-4788-B8F1-603ECCAA4E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39E5A786-1371-4788-B8F1-603ECCAA4E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39E5A786-1371-4788-B8F1-603ECCAA4E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D9FF49-B610-47FC-8C5F-0571390436B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D9FF49-B610-47FC-8C5F-0571390436B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D9FF49-B610-47FC-8C5F-0571390436B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D9FF49-B610-47FC-8C5F-0571390436B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

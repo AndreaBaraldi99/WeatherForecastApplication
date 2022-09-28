@@ -19,7 +19,7 @@ namespace WeatherForecastLib
         [JsonPropertyName("street")]
         public string Street { get; set; }
         [JsonPropertyName("confidence")]
-        public int Confidence { get; set; }
+        public double Confidence { get; set; }
         [JsonPropertyName("region")]
         public string Region { get; set; }
         [JsonPropertyName("region_code")]

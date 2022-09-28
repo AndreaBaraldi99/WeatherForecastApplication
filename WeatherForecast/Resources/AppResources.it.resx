@@ -120,6 +120,9 @@
   <data name="AverageWeather" xml:space="preserve">
     <value>Meteo</value>
   </data>
+  <data name="Data" xml:space="preserve">
+    <value>Dati</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="LocationEntry" xml:space="preserve">
     <value>Inserisci località</value>
+  </data>
+  <data name="LogsID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="Longitude" xml:space="preserve">
     <value>Longitudine</value>
@@ -156,11 +162,17 @@
   <data name="PrecipitationSum" xml:space="preserve">
     <value>Precipitazioni (mm)🌧️</value>
   </data>
+  <data name="ResponseCode" xml:space="preserve">
+    <value>Codice di risposta</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Cerca</value>
   </data>
   <data name="SelectMode" xml:space="preserve">
     <value>Modalità</value>
+  </data>
+  <data name="ShowLogs" xml:space="preserve">
+    <value>Mostra logs (giorni)</value>
   </data>
   <data name="Sunrise" xml:space="preserve">
     <value>Alba 🌅</value>

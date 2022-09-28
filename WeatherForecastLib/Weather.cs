@@ -25,6 +25,7 @@ namespace WeatherForecastLib
         public WeatherForecastResult GetForecast(double latitude, double longitude)
         {
             string url = _apiRootWeather + _forecastParams + "&latitude=" + latitude.ToString("0.0", CultureInfo.InvariantCulture) + "&longitude=" + longitude.ToString("0.0", CultureInfo.InvariantCulture);
+            
             var response = _api.CallAPI(url);
             if (response == null)
             {
@@ -38,8 +39,10 @@ namespace WeatherForecastLib
                 Debug.WriteLine($"Error. Reason: {error.reason}");
                 return null;
             }
+
             WeatherForecastResult forecastResult = new WeatherForecastResult();
             forecastResult = response.Content.ReadFromJsonAsync<WeatherForecastResult>().Result;
+            forecastResult.ResponseCode = (int)response.StatusCode;
             return forecastResult;
         }
 

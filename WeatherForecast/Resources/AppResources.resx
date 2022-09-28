@@ -120,6 +120,9 @@
   <data name="AverageWeather" xml:space="preserve">
     <value>Average weather</value>
   </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -127,22 +130,25 @@
     <value>Latitude</value>
   </data>
   <data name="LatitudeEntry" xml:space="preserve">
-    <value>Enter latitude</value>
+    <value>Insert latitude</value>
   </data>
   <data name="LatitudeLongitude" xml:space="preserve">
-    <value>Latitude and longitude</value>
+    <value>Lat/Lon</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Location</value>
   </data>
   <data name="LocationEntry" xml:space="preserve">
-    <value>Enter location</value>
+    <value>Insert location</value>
+  </data>
+  <data name="LogsID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
   <data name="LongitudeEntry" xml:space="preserve">
-    <value>Enter longitude</value>
+    <value>Insert longitude</value>
   </data>
   <data name="MaxTemperature" xml:space="preserve">
     <value>Max temperature °C 🔺</value>
@@ -156,11 +162,17 @@
   <data name="PrecipitationSum" xml:space="preserve">
     <value>Precipitation sum (mm)🌧️</value>
   </data>
+  <data name="ResponseCode" xml:space="preserve">
+    <value>Response code</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="SelectMode" xml:space="preserve">
     <value>Select mode</value>
+  </data>
+  <data name="ShowLogs" xml:space="preserve">
+    <value>Show logs (days)</value>
   </data>
   <data name="Sunrise" xml:space="preserve">
     <value>Sunrise 🌅</value>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherForecast.DTO\WeatherForecast.DTO.csproj" />
+    <ProjectReference Include="..\WeatherForecast.Repository\WeatherForecast.Repository.csproj" />
+    <ProjectReference Include="..\WeatherForecastRepositoryInterfaces\WeatherForecast.RepositoryInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

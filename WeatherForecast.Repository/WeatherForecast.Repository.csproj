@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.9" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+    <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.116" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeatherForecastRepositoryInterfaces\WeatherForecastRepositoryInterfaces.csproj" />
+    <ProjectReference Include="..\WeatherForecastRepositoryInterfaces\WeatherForecast.RepositoryInterfaces.csproj" />
   </ItemGroup>
 
 </Project>

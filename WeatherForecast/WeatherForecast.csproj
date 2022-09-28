@@ -57,11 +57,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\WeatherForecast.Core\WeatherForecast.Core.csproj" />
+	  <ProjectReference Include="..\WeatherForecast.Repository\WeatherForecast.Repository.csproj" />
 	  <ProjectReference Include="..\WeatherForecastLib\WeatherForecastLib.csproj" />
+	  <ProjectReference Include="..\WeatherForecastRepositoryInterfaces\WeatherForecast.RepositoryInterfaces.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Database\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\AppResources.it.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.it.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\AppResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\AppResources.it.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppResources.it.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Database\WeatherRequest.db3">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

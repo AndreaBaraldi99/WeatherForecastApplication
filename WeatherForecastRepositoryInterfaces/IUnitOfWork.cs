@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherForecastRepositoryInterfaces
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IWeatherRequestRepository WeatherRequestRepository { get; }
         void Commit();

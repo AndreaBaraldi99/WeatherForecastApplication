@@ -6,12 +6,11 @@ namespace WeatherForecast.Repository
 {
     public abstract class BaseRepository
     {
-        private IDbConnection _connection;
+        private IDbConnection Connection { get { return _transaction.Connection; } }
         private readonly IDbTransaction _transaction;
 
-        public BaseRepository(IDbConnection connection, IDbTransaction transaction)
+        public BaseRepository(IDbTransaction transaction)
         {
-            _connection = connection;
             _transaction = transaction;
 
             SqlMapper.AddTypeHandler(new DateTimeOffsetHandler());
@@ -21,56 +20,56 @@ namespace WeatherForecast.Repository
 
         protected T ExecuteScalar<T>(string sql, object param)
         {
-            return _connection.ExecuteScalar<T>(sql, param, _transaction);
+            return Connection.ExecuteScalar<T>(sql, param, _transaction);
         }
 
         protected T QuerySingleOrDefault<T>(string sql, object param)
         {
-            return _connection.QuerySingleOrDefault<T>(sql, param, _transaction);
+            return Connection.QuerySingleOrDefault<T>(sql, param, _transaction);
         }
         protected IEnumerable<dynamic> Query(string sql, object param = null)
         {
-            return _connection.Query(sql, param, _transaction);
+            return Connection.Query(sql, param, _transaction);
         }
 
         protected IEnumerable<T> Query<T>(string sql, object param = null)
         {
-            return _connection.Query<T>(sql, param, _transaction);
+            return Connection.Query<T>(sql, param, _transaction);
         }
 
         protected IEnumerable<T3> Query<T1, T2, T3>(string sql, Func<T3, T2, T3> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected IEnumerable<T4> Query<T1, T2, T3, T4>(string sql, Func<T4, T2, T3, T4> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected IEnumerable<T5> Query<T1, T2, T3, T4, T5>(string sql, Func<T5, T2, T3, T4, T5> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected IEnumerable<T6> Query<T1, T2, T3, T4, T5, T6>(string sql, Func<T6, T2, T3, T4, T5, T6> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected IEnumerable<T7> Query<T1, T2, T3, T4, T5, T6, T7>(string sql, Func<T7, T2, T3, T4, T5, T6, T7> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected IEnumerable<T8> Query<T1, T2, T3, T4, T5, T6, T7, T8>(string sql, Func<T8, T2, T3, T4, T5, T6, T7, T8> map, object param = null, string splitOn = "Id")
         {
-            return _connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
+            return Connection.Query(sql, map, param, _transaction, true, splitOn, null, null);
         }
 
         protected void Execute(string sql, object param)
         {
-            _connection.Execute(sql, param, _transaction);
+            Connection.Execute(sql, param, _transaction);
         }
     }
 

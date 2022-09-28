@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
@@ -34,6 +35,12 @@ namespace WeatherForecastLib
 
         [JsonPropertyName("daily")]
         public Daily Daily { get; set; }
+        public int ResponseCode { get; set; }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
 
         
     }

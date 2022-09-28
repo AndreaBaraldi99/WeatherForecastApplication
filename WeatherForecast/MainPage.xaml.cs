@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui.Markup;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using WeatherForecast.Core;
 using WeatherForecast.ViewModels;
 using WeatherForecastLib;
 namespace WeatherForecast;
@@ -9,11 +10,13 @@ namespace WeatherForecast;
 public partial class MainPage : ContentPage
 {
 	WeatherViewModel _viewModel;
+	private WeatherRequestHandler _weatherRequestHandler;
 
 	public MainPage()
 	{
 		InitializeComponent();
 		BindingContext = _viewModel = new WeatherViewModel();
+
     }
 	//SemanticScreenReader.Announce(CounterBtn.Text);
 
@@ -75,8 +78,18 @@ public partial class MainPage : ContentPage
 		searchButton.IsEnabled = true;
 		ResultBorder.IsVisible = true;
 	}
-		
 
-
+	private void DaysEntry_Completed(object sender, EventArgs e)
+	{
+		if (DaysEntry.Text != string.Empty && DaysEntry.Text != null)
+		{
+            _viewModel.PopulateLogs(int.Parse(DaysEntry.Text));
+            LogsList.IsEnabled = true;
+			LogsList.IsVisible = true;
+			LogsBorder.IsVisible = true;
+        }
+		else
+			return;
+	}
 }
 
