@@ -1,7 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Drawing;
 using System.Text.Json.Serialization;
 
 namespace WeatherForecastLib

@@ -1,14 +1,6 @@
-﻿using CommunityToolkit.Maui.Core.Extensions;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Newtonsoft.Json;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using WeatherForecast.Core;
 using WeatherForecast.DTO;
 using WeatherForecast.Resources;

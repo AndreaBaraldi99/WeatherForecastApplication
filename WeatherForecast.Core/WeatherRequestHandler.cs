@@ -1,5 +1,5 @@
 ﻿using WeatherForecast.DTO;
-using WeatherForecastRepositoryInterfaces;
+using WeatherForecast.RepositoryInterfaces;
 
 namespace WeatherForecast.Core
 {

@@ -1,6 +1,6 @@
 ﻿using WeatherForecast.Core;
 using WeatherForecast.Repository;
-using WeatherForecastRepositoryInterfaces;
+using WeatherForecast.RepositoryInterfaces;
 
 namespace WeatherForecast;
 

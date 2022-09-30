@@ -1,10 +1,5 @@
-﻿using CommunityToolkit.Maui.Behaviors;
-using CommunityToolkit.Maui.Markup;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using WeatherForecast.Core;
+﻿using WeatherForecast.Core;
 using WeatherForecast.ViewModels;
-using WeatherForecastLib;
 namespace WeatherForecast;
 
 public partial class MainPage : ContentPage
